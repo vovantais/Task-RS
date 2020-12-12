@@ -103,7 +103,7 @@ module.exports = {
       template: `${PATHS.src}/index.html`,
       filename: "./index.html"
     }),
-	new HtmlPluginRemove(/<!--deletestart-->[\s\S]*<!--deleteend-->/gi),
+    new HtmlPluginRemove(/<!--deletestart-->[\s\S]*<!--deleteend-->/gi),
     new CopyWebpackPlugin([
       { from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
       { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
