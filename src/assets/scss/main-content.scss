@@ -1,3 +1,42 @@
-.main-content{
-    height: calc(100vh - 80px);
+.main-content {
+    width: 100%;
+    height: calc(100vh - 180px);
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "nav article";
+        grid-template-rows: 80px 1fr;
+        grid-template-columns: 320px 1fr;
+    grid-gap: 10px;
+    grid-column-gap: 10px;
+    z-index: 10;
 }
+
+.main__header {
+    grid-area: header;
+    background-color: brown;
+}
+.main__navigation {
+    grid-area: nav;
+    background-color: darkblue;
+    border: 1px solid black;
+}
+.main___map {
+    grid-area: article;
+    background-color: chartreuse;
+    border: 1px solid black;
+}
+
+/* Stack the layout on small devices/viewports. */
+@media screen and (max-width: 575px) {
+    .main-content { 
+      grid-template-areas: 
+        "header"
+        "article"
+        "nav";
+      grid-template-rows: 80px 1fr 1fr;  
+      grid-template-columns: 1fr;
+   }
+  }
