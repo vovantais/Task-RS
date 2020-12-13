@@ -32,11 +32,11 @@
 /* Stack the layout on small devices/viewports. */
 @media screen and (max-width: 575px) {
     .main-content { 
-      grid-template-areas: 
+        grid-template-areas: 
         "header"
         "article"
         "nav";
-      grid-template-rows: 80px 1fr 1fr;  
-      grid-template-columns: 1fr;
-   }
-  }
+        grid-template-rows: 80px 1fr 1fr;  
+        grid-template-columns: 1fr;
+    }    
+}
