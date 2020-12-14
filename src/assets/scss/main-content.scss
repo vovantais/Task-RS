@@ -8,7 +8,7 @@
         "header header"
         "nav article";
         grid-template-rows: 80px 1fr;
-        grid-template-columns: 320px 1fr;
+        grid-template-columns: 350px 1fr;
     grid-gap: 10px;
     grid-column-gap: 10px;
     z-index: 10;
@@ -16,17 +16,36 @@
 
 .main__header {
     grid-area: header;
-    background-color: brown;
+    @include flex-nowrap-row-center();
 }
+
 .main__navigation {
     grid-area: nav;
+    @include flex-nowrap-column-center();
     background-color: darkblue;
     border: 1px solid black;
+    overflow-y: scroll;
+    & .nav__search-input{
+        width: 90%;
+        height: 30px;
+        border-radius: 10px;
+    }
 }
 .main___map {
     grid-area: article;
+    @include flex-nowrap-row-center();
     background-color: chartreuse;
     border: 1px solid black;
+}
+
+.header__time-conteiner{
+    min-width: 300px;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    font-family: $mainFont;
+    font-size: 2rem;
+    color: $unhealthy;
 }
 
 /* Stack the layout on small devices/viewports. */

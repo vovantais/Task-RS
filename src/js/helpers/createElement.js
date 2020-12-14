@@ -2,19 +2,40 @@
 export default class CreateElement {
   constructor(tag) { 
     this.tag = tag;
+    this.element = null;
   }
 
   createTemplate() {
     const element = document.createElement(this.tag);
+    this.element = element;
     return element;
   }
-
-  addClass(element, addedClass) {
-    element.classList.add(addedClass);
+  
+  appendElement(root){
+    root.append(this.element);
   }
 
-  addAttribute(element, attr, value) {
-    element.addAttribute(attr, value);
+  addAfterElement(root){
+    root.after(this.element);
+  }
+
+  addBeforeElement(root){
+    root.before(this.element);
+  }
+
+  addElementToDOM(root){
+    root.append(this.element);
+  }
+  addClass(addedClass) {
+    this.element.classList.add(addedClass);
+  }
+
+  addAttribute(attr, value) {
+    this.element.addAttribute(attr, value);
+  }
+
+  addTextContent(string){
+    this.element.textContent = string;
   }
 }
 
