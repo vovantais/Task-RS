@@ -7,7 +7,7 @@
     grid-template-areas:
         "header header"
         "nav article";
-        grid-template-rows: 80px 1fr;
+        grid-template-rows: 60px 1fr;
         grid-template-columns: 350px 1fr;
     grid-gap: 10px;
     grid-column-gap: 10px;
@@ -38,15 +38,6 @@
     border: 1px solid black;
 }
 
-.header__time-conteiner{
-    min-width: 300px;
-    width: 50%;
-    margin: auto;
-    text-align: center;
-    font-family: $mainFont;
-    font-size: 2rem;
-    color: $unhealthy;
-}
 
 /* Stack the layout on small devices/viewports. */
 @media screen and (max-width: 575px) {

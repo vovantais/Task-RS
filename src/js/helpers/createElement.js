@@ -10,7 +10,7 @@ export default class CreateElement {
     this.element = element;
     return element;
   }
-  
+
   appendElement(root){
     root.append(this.element);
   }
@@ -22,10 +22,7 @@ export default class CreateElement {
   addBeforeElement(root){
     root.before(this.element);
   }
-
-  addElementToDOM(root){
-    root.append(this.element);
-  }
+  
   addClass(addedClass) {
     this.element.classList.add(addedClass);
   }
