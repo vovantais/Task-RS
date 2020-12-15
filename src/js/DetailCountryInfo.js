@@ -7,6 +7,7 @@ export default class DetailCountryInfo {
     this.title = null;
     this.dataList = null;
     this.delete_button = null;
+    this.graphConteiner = null;
   }
 
   countryInfo() {
@@ -72,5 +73,15 @@ export default class DetailCountryInfo {
   deleteInfoConteiner() {
     document.querySelector(".country-info").remove();
   }
-//creategraph
+
+  createGraphConteiner() {
+    const craphConteiner = document.createElement("div");
+    craphConteiner.classList.add("country-info__graph");
+    this.conteiner.append(craphConteiner);
+    this.graphConteiner = craphConteiner;
+    this.createGraph();
+  }
+
+  createGraph() {
+  }
 }

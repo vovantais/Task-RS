@@ -24,3 +24,4 @@ const country = "France";
 
 const countryDetailsInfo = new DetailCountryInfo(country, sampleData, root);
 countryDetailsInfo.countryInfo();
+countryDetailsInfo.createGraphConteiner();
