@@ -1,6 +1,6 @@
 .main-content {
 	width: 100%;
-	height: calc(100vh - 180px);
+	height: calc(100vh - 150px);
 	margin: 0;
 	padding: 0;
 	display: grid;
@@ -23,8 +23,6 @@
 	// ! Fix style
 	display: flex;
 	flex-direction: column;
-	background-color: darkblue;
-	border: 1px solid black;
 	overflow-y: scroll;
 	position: relative;
 	& .nav__wrapper-input {
@@ -32,11 +30,19 @@
 		position: sticky;
 		top: 0;
 		z-index: 3;
-		background: #00008b;
+		background-color: $default-color;
 	}
 	& .nav__search-input {
-		width: 90%;
+		width: 80%;
+		height: 30px;
+		margin-left: 10%;
+		padding-left: 10px;
 		border-radius: 10px;
+		border: none;
+		font-family: $mainFont;
+		@include adaptiv-font(23, 18);
+		color: $green-bg-color;
+		box-shadow: 0 2px 3px #575555 inset;
 	}
 	& .nav__country-list {
 		margin: 10px 0px 0px 0px;
@@ -47,8 +53,10 @@
 			list-style-type: none;
 			text-transform: uppercase;
 			margin: 0px 0px 10px 0px;
-			color: $default-color;
+			color: $green-bg-color;
 			letter-spacing: 1.2px;
+			box-shadow: -10px 5px 2px rgba(0,0,0,.2);
+			transition: 0.5s;
 			@include adaptiv-font(23, 18);
 			cursor: pointer;
 			img {
@@ -56,6 +64,9 @@
 				width: 30px;
 				height: 30px;
 				margin: 0px 10px 0px 0px;
+			}
+			&:hover{
+				box-shadow: none;
 			}
 		}
 	}

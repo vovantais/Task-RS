@@ -12,7 +12,7 @@ export default class DetailCountryInfo {
     this.colorsBackground = [];
   }
 
-  countryInfo() {
+  outPutcountryInfo() {
     this.createInfoConteiner();
     this.createTitle();
     this.createElementsDataList();
@@ -47,10 +47,10 @@ export default class DetailCountryInfo {
     elementData.classList.add("elements-list__element");
     const elementName = document.createElement("p");
     elementName.classList.add("element", "element-name");
-    elementName.textContent = element;
+    elementName.textContent = element === 0 ? "-" : element;
     const elementValue = document.createElement("p");
     elementValue.classList.add("element", "element-value");
-    elementValue.textContent = value;
+    elementValue.textContent = value === 0 ? "-" : value;
     elementData.append(elementName);
     elementData.append(elementValue);
     return elementData;
@@ -93,11 +93,11 @@ export default class DetailCountryInfo {
         const min = colorData[key].min;
         const max = colorData[key].max;
         if(number >= min && number <= max) {
-          if(number === null || number === "undefined") {
-            this.colorsBackground.push("-");
-          }
+          if(number === "-"){
+            this.colorsBackground.push("rgba(0,0,0,.1)");
+          } 
           this.colorsBackground.push(colorData[key].color);
-        } 
+        }
       }
     });
   }
@@ -108,7 +108,7 @@ export default class DetailCountryInfo {
     var myChart = new Chart(ctx, {
       type: "bar",
       data: {
-        labels: ["CO", "O3", "NO2", "SO2", "PM10", "PM2.5"],
+        labels: ["AQI", "CO", "O3", "NO2", "SO2", "PM10", "PM2.5"],
         datasets: [{
           label: "Air polution",
           data: Object.values(this.data),
