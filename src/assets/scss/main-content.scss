@@ -1,52 +1,80 @@
 .main-content {
-    width: 100%;
-    height: calc(100vh - 180px);
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-areas:
-        "header header"
-        "nav article";
-        grid-template-rows: 60px 1fr;
-        grid-template-columns: 350px 1fr;
-    grid-gap: 10px;
-    grid-column-gap: 10px;
-    z-index: 10;
+	width: 100%;
+	height: calc(100vh - 180px);
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-areas:
+		"header header"
+		"nav article";
+	grid-template-rows: 60px 1fr;
+	grid-template-columns: 350px 1fr;
+	grid-gap: 10px;
+	grid-column-gap: 10px;
+	z-index: 10;
 }
 
 .main__header {
-    grid-area: header;
-    @include flex-nowrap-row-center();
+	grid-area: header;
+	@include flex-nowrap-row-center();
 }
 
 .main__navigation {
-    grid-area: nav;
-    @include flex-nowrap-column-center();
-    background-color: darkblue;
-    border: 1px solid black;
-    overflow-y: scroll;
-    & .nav__search-input{
-        width: 90%;
-        height: 30px;
-        border-radius: 10px;
-    }
+	// ! Fix style
+	display: flex;
+	flex-direction: column;
+	background-color: darkblue;
+	border: 1px solid black;
+	overflow-y: scroll;
+	position: relative;
+	& .nav__wrapper-input {
+		padding: 10px 0px 10px 10px;
+		position: sticky;
+		top: 0;
+		z-index: 3;
+		background: #00008b;
+	}
+	& .nav__search-input {
+		width: 90%;
+		border-radius: 10px;
+	}
+	& .nav__country-list {
+		margin: 10px 0px 0px 0px;
+		position: relative;
+		z-index: 1;
+		li {
+			display: flex;
+			list-style-type: none;
+			text-transform: uppercase;
+			margin: 0px 0px 10px 0px;
+			color: $default-color;
+			letter-spacing: 1.2px;
+			@include adaptiv-font(23, 18);
+			cursor: pointer;
+			img {
+				display: block;
+				width: 30px;
+				height: 30px;
+				margin: 0px 10px 0px 0px;
+			}
+		}
+	}
 }
 .main___map {
-    grid-area: article;
-    @include flex-nowrap-row-center();
-    background-color: chartreuse;
-    border: 1px solid black;
+	grid-area: article;
+	@include flex-nowrap-row-center();
+	background-color: chartreuse;
+	border: 1px solid black;
 }
-
 
 /* Stack the layout on small devices/viewports. */
 @media screen and (max-width: 575px) {
-    .main-content { 
-        grid-template-areas: 
-        "header"
-        "article"
-        "nav";
-        grid-template-rows: 80px 1fr 1fr;  
-        grid-template-columns: 1fr;
-    }    
+	.main-content {
+		grid-template-areas:
+			"header"
+			"article"
+			"nav";
+		grid-template-rows: 80px 1fr 1fr;
+		grid-template-columns: 1fr;
+	}
 }
