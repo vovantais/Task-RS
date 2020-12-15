@@ -1,26 +1,57 @@
 export default class TimeTillEnd {
   constructor() {
     this.timeConteiner = null;
+    this._endDate = new Date('December 31, 2050 23:59:59').getTime();
+    new Date().getTime();
   }
 
   createTimeConteiner() {
+    let listLabels = ["year", "month", "hour", "min", "sec"];
+    const header = document.querySelector(".main__header");
     const timeConteiner = document.createElement("div");
     timeConteiner.classList.add("header__time-conteiner");
-    this.timeConteiner = timeConteiner;
-    const header = document.querySelector(".main__header");
-    header.append(timeConteiner);
-    const time = this.timeTillEnd();
-    timeConteiner.textContent = time;
-  }
+    timeConteiner.id = 'countdown';
 
-  timeTillEnd() {
-    //текущая дата
-    //дата конца
-    //получить разницу
-    //перевести в минуты и часы
-    //вывести в контейнер
-    return ("10:10:10");
+    const tiles = document.createElement('div');
+    tiles.id = 'tiles';
+
+    const labels = document.createElement('ul');
+    labels.classList.add("labels");
+
+
+    header.append(timeConteiner);
+    timeConteiner.append(tiles);
+    timeConteiner.append(labels);
+
+    listLabels.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = item;
+      labels.append(li);
+      const span = document.createElement('span');
+      tiles.append(span);
+    })
+  }
+  countTime() {
+    const timer = setInterval(() => {
+      let timeNow = new Date().getTime();
+      let diff = this._endDate - timeNow;
+      let year = Math.floor(diff / 31104000000);
+      let month = Math.floor((diff / 2592000000) % 12);
+      let hour = Math.floor((diff / 3600000) % 24);
+      let min = Math.floor((diff / 60000) % 60);
+      let sec = Math.floor((diff / 1000) % 60);
+      this.render({ year, month, hour, min, sec });
+      if (diff < 0) {
+        clearInterval(timer);
+        this.timeConteiner.textContent = "Time is over";
+      }
+    }, 1000);
+  }
+  render(data) {
+    const labelsList = document.querySelector('#tiles').children;
+    Array.from(labelsList).forEach((item, index) => {
+      const val = Object.values(data);
+      item.innerHTML = val[index];
+    });
   }
 }
-
-
