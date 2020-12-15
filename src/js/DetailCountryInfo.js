@@ -1,3 +1,4 @@
+import colorData from "../assets/describe-air.json";
 export default class DetailCountryInfo {
   constructor(country, dataElements, root) {
     this.country = country;
@@ -8,6 +9,7 @@ export default class DetailCountryInfo {
     this.dataList = null;
     this.delete_button = null;
     this.graphConteiner = null;
+    this.colorsBackground = [];
   }
 
   countryInfo() {
@@ -75,13 +77,55 @@ export default class DetailCountryInfo {
   }
 
   createGraphConteiner() {
-    const craphConteiner = document.createElement("div");
+    const craphConteiner = document.createElement("canvas");
     craphConteiner.classList.add("country-info__graph");
+    craphConteiner.setAttribute("id", "info-graph");
+    craphConteiner.textContent = "Your browser does not support the canvas element.";
     this.conteiner.append(craphConteiner);
     this.graphConteiner = craphConteiner;
     this.createGraph();
   }
 
+  createBackGrounds() {
+    const dataNumbers = Object.values(this.data);
+    dataNumbers.forEach(number => {
+      for (const key in colorData) {
+        const min = colorData[key].min;
+        const max = colorData[key].max;
+        if(number >= min && number <= max) {
+          if(number === null || number === "undefined") {
+            this.colorsBackground.push("-");
+          }
+          this.colorsBackground.push(colorData[key].color);
+        } 
+      }
+    });
+  }
+
   createGraph() {
+    this.createBackGrounds();
+    var ctx = this.graphConteiner.getContext("2d");
+    var myChart = new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: ["CO", "O3", "NO2", "SO2", "PM10", "PM2.5"],
+        datasets: [{
+          label: "Air polution",
+          data: Object.values(this.data),
+          backgroundColor: this.colorsBackground,
+          borderColor: this.colorsBackground,
+          borderWidth: 2
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        },
+      }
+    });
   }
 }
