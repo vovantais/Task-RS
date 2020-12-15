@@ -18,6 +18,20 @@ export default class CreateContentPage {
     this.nav = mainNav;
     this.header.after(mainNav);
   }
+  // ! Do two metods
+  createSearchInput() {
+    const wrapper = document.createElement('div');//nav__wrapper-input
+    const createSearchInput = document.createElement('input');
+    wrapper.classList.add('nav__wrapper-input');
+    createSearchInput.classList.add('nav__search-input');
+    this.nav.append(wrapper);
+    wrapper.append(createSearchInput);
+  }
+  createList() {
+    const createList = document.createElement('ul');
+    createList.classList.add('nav__country-list');
+    this.nav.append(createList);
+  }
 
   createMap() {
     const map = document.createElement("article");
@@ -30,5 +44,7 @@ export default class CreateContentPage {
     this.createHeader();
     this.createNavigation();
     this.createMap();
+    this.createSearchInput();
+    this.createList();
   }
 }
