@@ -1,7 +1,7 @@
 export default class TimeTillEnd {
   constructor() {
     this.timeConteiner = null;
-    this._endDate = new Date('December 31, 2050 23:59:59').getTime();
+    this._endDate = new Date("December 31, 2050 23:59:59").getTime();
     new Date().getTime();
   }
 
@@ -9,25 +9,29 @@ export default class TimeTillEnd {
     let listLabels = ["year", "month", "hour", "min", "sec"];
     const header = document.querySelector(".main__header");
     const timeConteiner = document.createElement("div");
+    const timeLabel = document.createElement("p");
+    timeLabel.classList.add("time__label");
+    timeLabel.textContent = "time till end";
     timeConteiner.classList.add("header__time-conteiner");
-    timeConteiner.id = 'countdown';
+    timeConteiner.id = "countdown";
 
-    const tiles = document.createElement('div');
-    tiles.id = 'tiles';
+    const tiles = document.createElement("div");
+    tiles.id = "tiles";
 
-    const labels = document.createElement('ul');
+    const labels = document.createElement("ul");
     labels.classList.add("labels");
 
 
     header.append(timeConteiner);
     timeConteiner.append(tiles);
     timeConteiner.append(labels);
+    timeConteiner.append(timeLabel);
 
     listLabels.forEach(item => {
-      const li = document.createElement('li');
+      const li = document.createElement("li");
       li.textContent = item;
       labels.append(li);
-      const span = document.createElement('span');
+      const span = document.createElement("span");
       tiles.append(span);
     })
   }
@@ -48,7 +52,7 @@ export default class TimeTillEnd {
     }, 1000);
   }
   render(data) {
-    const labelsList = document.querySelector('#tiles').children;
+    const labelsList = document.querySelector("#tiles").children;
     Array.from(labelsList).forEach((item, index) => {
       const val = Object.values(data);
       item.innerHTML = val[index];
