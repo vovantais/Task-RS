@@ -18,9 +18,8 @@ export default class CreateContentPage {
     this.nav = mainNav;
     this.header.after(mainNav);
   }
-  // ! Do two metods
   createSearchInput() {
-    const wrapper = document.createElement('div');//nav__wrapper-input
+    const wrapper = document.createElement('div');
     const createSearchInput = document.createElement('input');
     wrapper.classList.add('nav__wrapper-input');
     createSearchInput.classList.add('nav__search-input');

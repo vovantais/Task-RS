@@ -21,7 +21,6 @@ export default class TimeTillEnd {
     const labels = document.createElement("ul");
     labels.classList.add("labels");
 
-
     header.append(timeConteiner);
     timeConteiner.append(tiles);
     timeConteiner.append(labels);

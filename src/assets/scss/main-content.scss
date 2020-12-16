@@ -20,7 +20,6 @@
 }
 
 .main__navigation {
-	// ! Fix style
 	display: flex;
 	flex-direction: column;
 	overflow-y: scroll;
@@ -55,7 +54,7 @@
 			margin: 0px 0px 10px 0px;
 			color: $green-bg-color;
 			letter-spacing: 1.2px;
-			box-shadow: -10px 5px 2px rgba(0,0,0,.2);
+			box-shadow: -10px 5px 2px rgba(0, 0, 0, 0.2);
 			transition: 0.5s;
 			@include adaptiv-font(23, 18);
 			cursor: pointer;
@@ -65,7 +64,7 @@
 				height: 30px;
 				margin: 0px 10px 0px 0px;
 			}
-			&:hover{
+			&:hover {
 				box-shadow: none;
 			}
 		}
