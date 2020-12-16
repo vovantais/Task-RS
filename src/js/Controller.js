@@ -11,7 +11,6 @@ export default class Controller {
     list.addEventListener("click", (e)=>{
       const targetCountry = e.target.textContent;
       this.targetCountry = targetCountry;
-      console.log(targetCountry)
       this.getCountryInfo(targetCountry);
     });
   }
