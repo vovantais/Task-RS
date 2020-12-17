@@ -8,6 +8,8 @@ import Controller from "./js/Controller.js";
 import CreateMap from "./js/map.js";
 import ElementDescription from "./js/ElementDescription.js";
 import ColorValueDescription from "./js/ColorValueDescription.js";
+import TopContriesPollution from "./js/TopContriesPollution";
+
 const root = document.querySelector("#root");
 
 const contentPage = new CreateContentPage(root);
@@ -20,6 +22,9 @@ timeTillEnd.countTime();
 const countries = new Countries();
 countries.fetchCountriesAndFlag();
 countries.searchCountry();
+
+const topContriesPollution = new TopContriesPollution();
+//topContriesPollution.fetchAllAqi();
 
 const controller = new Controller(root);
 controller.getTargetCountry();

@@ -9,8 +9,8 @@ export default class ColorValueDescription {
   createCoverFilter() {
     const coverFilter = document.createElement("div");
     coverFilter.classList.add("coverFilter");
-    this.root.append(coverFilter); 
-    return coverFilter; 
+    this.root.append(coverFilter);
+    return coverFilter;
   }
 
   createColorConteiner() {
@@ -35,7 +35,7 @@ export default class ColorValueDescription {
     this.colorDescribeConteiner.append(colorValue);
   }
 
-  createColorDescription(value){
+  createColorDescription(value) {
     const colorDescription = document.createElement("p");
     colorDescription.classList.add("color-describe__description");
     colorDescription.textContent = `Description: ${value}`;
@@ -43,7 +43,7 @@ export default class ColorValueDescription {
 
   }
 
-  createRecomendation(value){
+  createRecomendation(value) {
     const recomendation = document.createElement("p");
     recomendation.classList.add("color-describe__recomendation");
     recomendation.textContent = `Recomendation: ${value}`;
@@ -70,7 +70,7 @@ export default class ColorValueDescription {
   }
 
   getValueInfo() {
-    this.buttonConteiner.addEventListener("click", (e)=>{
+    this.buttonConteiner.addEventListener("click", (e) => {
       const targetValue = e.target.textContent;
       const dataObj = this.getDataColorValue(targetValue);
       const filter = this.createCoverFilter();
@@ -86,9 +86,9 @@ export default class ColorValueDescription {
 
   getDataColorValue(targetValue) {
     const data = colors;
-    for (const key in  data) {
-      if(key === targetValue) {
-        return  data[key];
+    for (const key in data) {
+      if (key === targetValue) {
+        return data[key];
       }
     }
   }
