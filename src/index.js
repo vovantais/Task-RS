@@ -6,7 +6,8 @@ import TimeTillEnd from "./js/TimeTillEnd.js";
 import Countries from "./js/Countries";
 import Controller from "./js/Controller.js";
 import CreateMap from "./js/map.js";
-
+import ElementDescription from "./js/ElementDescription.js";
+import ColorValueDescription from "./js/ColorValueDescription.js";
 const root = document.querySelector("#root");
 
 const contentPage = new CreateContentPage(root);
@@ -25,3 +26,11 @@ controller.getTargetCountry();
 
 const newMap = new CreateMap();
 newMap.LoadMap();
+
+const elementDescription = new ElementDescription(root);
+elementDescription.createDescriptionConteiner();
+elementDescription.createElement();
+
+const colorValueDescription = new ColorValueDescription(root);
+colorValueDescription.createButtonConteiner();
+colorValueDescription.getValueInfo();
