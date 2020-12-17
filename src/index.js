@@ -5,6 +5,8 @@ import CreateContentPage from "./js/CreateContentPage";
 import TimeTillEnd from "./js/TimeTillEnd.js";
 import Countries from "./js/Countries";
 import Controller from "./js/Controller.js";
+import CreateMap from "./js/map.js";
+
 const root = document.querySelector("#root");
 
 const contentPage = new CreateContentPage(root);
@@ -20,3 +22,6 @@ countries.searchCountry();
 
 const controller = new Controller(root);
 controller.getTargetCountry();
+
+const newMap = new CreateMap();
+newMap.LoadMap();
