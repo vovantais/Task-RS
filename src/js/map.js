@@ -536,6 +536,7 @@ export default class CreateMap {
     // }
 
     map.addListener('click', function (e) {
+    console.log(e.latLng);
       placeMarkerAndPanTo(e.latLng, map);
     });
   }

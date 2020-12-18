@@ -1,4 +1,5 @@
-import elementsData from '../assets/describe-elements.json';
+import elementsData from "../assets/describe-elements.json";
+import GetDataFromAPI from "./helpers/getDataFromAPI";
 export default class ElementDescription {
   constructor(root) {
     this.element = null;
@@ -41,7 +42,16 @@ export default class ElementDescription {
       element.append(name);
       name.after(desc);
       this.elementsConteiner.append(element);
+      this.getElemetDataByClick(desc);
     }
+  }
+
+  getElemetDataByClick(name) {
+    name.addEventListener("click", (e)=>{
+      const targetElement = e.target.previousSibling.textContent;
+      const a = new GetDataFromAPI();
+      a.getElementValue(targetElement);
+    });
   }
 
 }

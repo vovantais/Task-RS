@@ -1,4 +1,5 @@
 import DetailCountryInfo from "./DetailCountryInfo";
+import GetDataFromAPI from "./helpers/getDataFromAPI";
 export default class Controller {
   constructor(root) {
     this.root = root;
@@ -15,38 +16,13 @@ export default class Controller {
     });
   }
 
-  //use it to get data object for target country 
-  getCountryInfo(country) {
-    if (country === "Russian Federation (Moscow)") country = "moscow";
-    if (country=== "belarus") country= "lithuania";
-    return new Promise((resolve, reject) => {
-      let request = new XMLHttpRequest();
-      request.open("GET", `https://api.waqi.info/feed/${country}/?token=703e3e7f4f8ffef686979528a294718f8e40c91f`);
-      request.onload = function () {
-        if (request.status === 200) {
-          resolve(JSON.parse(request.response));
-        } else {
-          reject("file nor found");
-        }
-      };
-      request.send();
-    });
-  }
-
   //use it to create block with detail info with elements
   addDataToInfoObject(targetCountry) {
-    const commonData = this.getCountryInfo(targetCountry);         
+    const getData = new GetDataFromAPI();
+    const commonData = getData.getCountryInfo(targetCountry);         
     commonData.then((data)=>{                   
       this.dataObj = this.createInfoObject(data.data);   
     }).then(() => this.outPutInfo());
-  }
-
-  //use it to get AQI data for target country
-  getAQIdataForCountry(targetCountry) {
-    const commonData = this.getCountryInfo(targetCountry); 
-    commonData.then((data) => {
-      return data.data.aqi;
-    });
   }
 
   createInfoObject(indexData) {
