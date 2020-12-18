@@ -9,6 +9,7 @@ import CreateMap from "./js/map.js";
 import ElementDescription from "./js/ElementDescription.js";
 import ColorValueDescription from "./js/ColorValueDescription.js";
 import TopContriesPollution from "./js/TopContriesPollution";
+//import Accordeon from "./js/Acordion";
 
 const root = document.querySelector("#root");
 
@@ -24,7 +25,6 @@ countries.fetchCountriesAndFlag();
 countries.searchCountry();
 
 const topContriesPollution = new TopContriesPollution();
-//topContriesPollution.fetchAllAqi();
 
 const controller = new Controller(root);
 controller.getTargetCountry();
@@ -35,6 +35,10 @@ newMap.LoadMap();
 const elementDescription = new ElementDescription(root);
 elementDescription.createDescriptionConteiner();
 elementDescription.createElement();
+
+// Add class accordion
+// const elem = document.querySelector(".accordion");
+// const accordeon = new Accordeon(elem);
 
 const colorValueDescription = new ColorValueDescription(root);
 colorValueDescription.createButtonConteiner();
