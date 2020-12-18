@@ -1,7 +1,7 @@
 import colors from "../assets/describe-air.json";
 export default class ColorValueDescription {
-  constructor(root) {
-    this.root = root;
+  constructor() {
+    this.root = document.querySelector(".main___map");
     this.colorDescribeConteiner = null;
     this.buttonConteiner = null;
   }

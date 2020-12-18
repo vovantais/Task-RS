@@ -13,7 +13,7 @@
 		"recomendation": "Active children and adults, and people with respiratory disease, such as asthma, should limit prolonged outdoor exertion",
 		"color": "rgba(250, 207, 57, 1)"
 	},
-	"unhealthy for Sensitive Groups": {
+	"unhealthy for sensitive groups": {
 		"min": 101,
 		"max": 150,
 		"describe": "Members of sensitive groups may experience health effects. The general public is not likely to be affected.",
@@ -27,7 +27,7 @@
 		"recomendation": "Active children and adults, and people with respiratory disease, such as asthma, should avoid prolonged outdoor exertion; everyone else, especially children, should limit prolonged outdoor exertion.",
 		"color": "rgba(246, 94, 95, 1)"
 	},
-	"very Unhealthy": {
+	"very unhealthy": {
 		"min": 201,
 		"max": 300,
 		"describe": "Health warnings of emergency conditions. The entire population is more likely to be affected.",

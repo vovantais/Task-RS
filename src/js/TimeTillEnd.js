@@ -7,7 +7,7 @@ export default class TimeTillEnd {
 
   createTimeConteiner() {
     let listLabels = ["year", "month", "hour", "min", "sec"];
-    const header = document.querySelector(".main__header");
+    const root = document.querySelector(".main__outPut-conteiner");
     const timeConteiner = document.createElement("div");
     const timeLabel = document.createElement("p");
     timeLabel.classList.add("time__label");
@@ -21,7 +21,7 @@ export default class TimeTillEnd {
     const labels = document.createElement("ul");
     labels.classList.add("labels");
 
-    header.append(timeConteiner);
+    root.append(timeConteiner);
     timeConteiner.append(tiles);
     timeConteiner.append(labels);
     timeConteiner.append(timeLabel);

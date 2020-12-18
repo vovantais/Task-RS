@@ -11,7 +11,7 @@
 
 .color-describe{
     &__conteiner {
-        width: 40%;
+        width: 90%;
         min-width: 320px;
         height: auto;
         min-height: 300px;
@@ -59,14 +59,14 @@
 }
 
 .button-conteiner {
-    width: 70%;
+    width: 100%;
     height: 50px;
     margin: 0;
     padding: 0;
     @include flex-wrap-row-center();
     position: absolute;
-    top: 180px;
-    left: 25%;
+    top: 20px;
+    left: 0;
 }
 
 .color-button {
@@ -75,7 +75,7 @@
     margin: auto 10px;
     text-align: center;
     font-family: $mainFont;
-    font-size: 18px;
+    font-size: 14px;
     color: $default-color;
     border: none;
     border-radius: 10px;
@@ -103,20 +103,6 @@
     text-align: center;
     color: $default-color;
     border: none;
-}
-
-@media screen and (max-width: 1200px) {
-    .button-conteiner {
-        width: auto;
-        height: 30%;
-        margin: 0;
-        padding: 0;
-        @include flex-wrap-column-center;
-        position: absolute;
-        top: 180px;
-        left: 400px;
-    }
-    
 }
 
 @media screen and (max-width: 600px) {

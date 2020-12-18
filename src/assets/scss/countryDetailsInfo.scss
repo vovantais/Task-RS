@@ -1,10 +1,10 @@
 .country-info {
-	width: 350px;
+	width: 340px;
 	height: auto;
 	position: absolute;
-	top: calc(50% - 225px);
-	left: calc(100vw - 400px);
-	background-color: rgba(0, 0, 0, 0.7);
+	top: calc(50% - 220px);
+	left: calc(100vw - 350px);
+	background-color: rgba(0, 0, 0, .9);
 	box-shadow: -2px -2px 50px 2px rgba(0, 0, 0, 0.2);
 	z-index: 15;
 	@include flex-nowrap-column-center();

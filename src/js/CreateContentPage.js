@@ -39,10 +39,17 @@ export default class CreateContentPage {
     this.nav.after(map);
   }
 
+  createOutPutConteiner() {
+    const outPutConteiner = document.createElement("aside");
+    outPutConteiner.classList.add("main__outPut-conteiner");
+    this.map.after(outPutConteiner);
+  }
+
   initCreateContentPage() {
     this.createHeader();
     this.createNavigation();
     this.createMap();
+    this.createOutPutConteiner();
     this.createSearchInput();
     this.createList();
   }

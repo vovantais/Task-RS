@@ -1,9 +1,9 @@
 import elementsData from "../assets/describe-elements.json";
 import GetDataFromAPI from "./helpers/getDataFromAPI";
 export default class ElementDescription {
-  constructor(root) {
+  constructor() {
     this.element = null;
-    this.root = root;
+    this.root = document.querySelector(".main___map");
     this.elementsConteiner = null;
   }
 
