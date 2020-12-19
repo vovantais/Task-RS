@@ -48,6 +48,7 @@ export default class Controller {
     }
     countryDetailsInfo.outPutcountryInfo();
     countryDetailsInfo.createGraphConteiner();
+    countryDetailsInfo.createForecastConteiner();
   }
 
 }

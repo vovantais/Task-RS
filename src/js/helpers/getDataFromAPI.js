@@ -1,6 +1,5 @@
 import countries from "../../static/countries.json";
 export default class GetDataFromAPI {
-
   //use it to get data object by coordinates
   getDataByCoordinates(lat, lng) {
     return new Promise((resolve, reject) => {
@@ -51,12 +50,12 @@ export default class GetDataFromAPI {
       const elementsData = data.data.iaqi;
       for (const key in elementsData) {
         if(key === targetElement) {
-            console.log(key);
-          values.value = elementsData[key].v;
+          values.value = elementsData[key].v !== "" ? elementsData[key].v : "--";
           values.country = targetCountry;
         }
       }
     });
+    console.log(values);
     return values;
   }
 
@@ -65,7 +64,6 @@ export default class GetDataFromAPI {
     const countriesData = countries;
     for (const key in countriesData) {
       const keyData = this.getElementDataForCountry(countriesData[key].name, targetElement.toLowerCase());
-      console.log(keyData)
     }
     //для каждой страны получить дату
     //из кадой даты вытащить показатель елемента если он есть

@@ -1,4 +1,5 @@
 import colorData from "../assets/describe-air.json";
+import GetDataFromAPI from "./helpers/getDataFromAPI";
 export default class DetailCountryInfo {
   constructor(country, dataElements, root) {
     this.country = country;
@@ -10,6 +11,11 @@ export default class DetailCountryInfo {
     this.delete_button = null;
     this.graphConteiner = null;
     this.colorsBackground = [];
+    this.forecastConteiner = null;
+    this.forecastData = [];
+    this.forecastElements = [];
+    this.forecastNumbers = {};
+    this.forecastCanva = null;
   }
 
   outPutcountryInfo() {
@@ -18,6 +24,7 @@ export default class DetailCountryInfo {
     this.createElementsDataList();
     this.createDeleteButton();
     this.outPutData();
+    this.getForecastData();
   }
 
   createInfoConteiner() {
@@ -30,7 +37,11 @@ export default class DetailCountryInfo {
   createTitle() {
     const title = document.createElement("h3");
     title.classList.add("country-info__title");
-    title.textContent = this.country;
+    if(this.country === "Russian Federation (Moscow)"){
+      title.textContent = "Russian Federation";
+    }else{
+      title.textContent = this.country;
+    }
     this.conteiner.append(title);
     this.title  = title;
   }
@@ -39,7 +50,23 @@ export default class DetailCountryInfo {
     const dataList = document.createElement("div");
     dataList.classList.add("country-info__elements-list");
     this.title.after(dataList);
+    const timeConteiner = this.createCurrentDateConteiner();
+    this.title.after(timeConteiner);
     this.dataList = dataList;
+  }
+
+  createCurrentDateConteiner() {
+    const currentDateConteiner = document.createElement("div");
+    currentDateConteiner.classList.add("current-date__conteiner");
+    const getDate = new GetDataFromAPI();
+    const currentDate = getDate.getCountryInfo(this.country);
+    currentDate.then((data)=>{
+      const month = data.data.time.iso ? new Date(data.data.time.iso).getMonth() : "--";
+      const day = data.data.time.iso ? new Date(data.data.time.iso).getDay() : "--";
+      const year = data.data.time.iso ? new Date(data.data.time.iso).getFullYear() : "--";
+      currentDateConteiner.textContent = (`${day}.${month}.${year}`);
+    });
+    return currentDateConteiner;
   }
 
   createElement(element, value) {
@@ -86,8 +113,8 @@ export default class DetailCountryInfo {
     this.createGraph();
   }
 
-  createBackGrounds() {
-    const dataNumbers = Object.values(this.data);
+  createBackGrounds(data) {
+    const dataNumbers = Object.values(data);
     dataNumbers.forEach(number => {
       for (const key in colorData) {
         const min = colorData[key].min;
@@ -103,7 +130,7 @@ export default class DetailCountryInfo {
   }
 
   createGraph() {
-    this.createBackGrounds();
+    this.createBackGrounds(this.data);
     var ctx = this.graphConteiner.getContext("2d");
     var myChart = new Chart(ctx, {
       type: "bar",
@@ -125,6 +152,76 @@ export default class DetailCountryInfo {
             }
           }]
         },
+      }
+    });
+  }
+
+  //use it to create forecast for target country
+  getForecastData() {
+    const getData = new GetDataFromAPI();
+    const commonData = getData.getCountryInfo(this.country);
+    commonData.then((data) => {
+      const forecastData = data.data.forecast.daily;
+      for (const key in forecastData) {
+        this.forecastNumbers = forecastData[key].map((element) => element.avg);
+        this.forecastElements.push({
+          "element": key,
+          "days" : forecastData[key].map((element) => element.day),
+          "avg" : forecastData[key].map((element) => element.avg)
+        });
+      }
+      this.forecastData  = forecastData;
+    });
+  }
+
+  createForecastConteiner() {
+    const forecastConteiner = document.createElement("div");
+    forecastConteiner.classList.add("country-info__forecast-conteiner");
+    this.conteiner.append(forecastConteiner);
+    this.forecastConteiner = forecastConteiner;
+    this.createForecastCanva();
+    this.createForecast();
+  }
+
+  createForecastCanva() {
+    const forecastCanva = document.createElement("canvas");
+    forecastCanva.classList.add("country-info__forecast-canvas");
+    forecastCanva.setAttribute("id", "info-forecast");
+    forecastCanva.textContent = "Your browser does not support the canvas element.";
+    this.forecastConteiner.append(forecastCanva);
+    this.forecastCanva = forecastCanva;
+  }
+
+  createForecast() {
+    this.createBackGrounds(this.forecastNumbers);
+    var ctx = this.forecastCanva.getContext("2d");
+    this.forecastElements.forEach((element) =>{
+      for (const key in element) {
+        const avg = element.avg;
+        const days = element.days;
+        const el = element.element;
+        var myChart = new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: days,
+            datasets: [{
+              label: "forecast: " + el,
+              data: avg,
+              backgroundColor: this.colorsBackground,
+              borderColor: this.colorsBackground,
+              borderWidth: 2
+            }]
+          },
+          options: {
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            },
+          }
+        });
       }
     });
   }
