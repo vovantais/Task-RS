@@ -27,48 +27,51 @@ export default class TopContriesPollution {
       })
   }
   createElements() {
-    const mainContent = document.querySelector(".main-content"); 
-
+    const mainContent = document.querySelector(".main__outPut-conteiner");
     const topContriesForPollutionClean = document.createElement("div");
     const topContriesForPollutionBodyClean = document.createElement("div");
     const topContriesForPollutionListClean = document.createElement("ul");
-
-    const topContriesForPollutionDirty = document.createElement("div");
-    const topContriesForPollutionBodyDirty = document.createElement("div");
-    const topContriesForPollutionListDirty = document.createElement("ul");
+    const topContriesForPollutionListItemClean = document.createElement("li");
+    const btnContriesForPollution = document.createElement("button");
+    const topContriesForPollutionListItemCleanDirty = document.createElement("li");
+    const btnContriesForPollutionDirty = document.createElement("button");
 
     topContriesForPollutionClean.classList.add("main__top-pollutionClean");
     topContriesForPollutionBodyClean.classList.add("main__body-pollutionClean");
-    topContriesForPollutionListClean.classList.add("main__list-pollutionClean");
+    topContriesForPollutionListClean.classList.add("main__list-pollutionClean", "js-accord", "accordion");
+    topContriesForPollutionListItemClean.classList.add("accordion__item", "clean");
+    btnContriesForPollution.classList.add("accordion__header", "js-accord-btn");
+    topContriesForPollutionListItemCleanDirty.classList.add("accordion__item", "dirty");
+    btnContriesForPollutionDirty.classList.add("accordion__header", "js-accord-btn");
 
-    topContriesForPollutionDirty.classList.add("main__top-pollutionDirty");
-    topContriesForPollutionBodyDirty.classList.add("main__body-pollutionDirty");
-    topContriesForPollutionListDirty.classList.add("main__list-pollutionDirty");
+    btnContriesForPollution.textContent = "top 10 clean countries";
+    btnContriesForPollutionDirty.textContent = "top 10 dirty countries";
 
     mainContent.append(topContriesForPollutionClean);
     topContriesForPollutionClean.append(topContriesForPollutionBodyClean);
     topContriesForPollutionBodyClean.append(topContriesForPollutionListClean);
-
-    mainContent.append(topContriesForPollutionDirty);
-    topContriesForPollutionDirty.append(topContriesForPollutionBodyDirty);
-    topContriesForPollutionBodyDirty.append(topContriesForPollutionListDirty);
+    topContriesForPollutionListClean.append(topContriesForPollutionListItemClean, topContriesForPollutionListItemCleanDirty);
+    topContriesForPollutionListItemClean.append(btnContriesForPollution);
+    topContriesForPollutionListItemCleanDirty.append(btnContriesForPollutionDirty);
   }
 
   render(topClean, topDirty) {
-    const topContriesForPollutionListClean = document.querySelector(".main__list-pollutionClean");
-    const topContriesForPollutionListDirty = document.querySelector(".main__list-pollutionDirty");
+    const topContriesForPollutionListClean = document.querySelector(".clean");
+    const topContriesForPollutionListDirty = document.querySelector(".dirty");
     topClean.forEach(item => {
-      const topContriesForPollutionListItemClean = document.createElement("li");
+      const topContriesForPollutionItemClean = document.createElement("p");
       const imgFlag = document.createElement("img");
-      topContriesForPollutionListItemClean.textContent = item.name + " " + item.aqi + " AQI";
+      topContriesForPollutionItemClean.classList.add("accordion__content");
+      topContriesForPollutionItemClean.textContent = item.name + " " + item.aqi + " AQI";
       imgFlag.src = item.flag;
-      topContriesForPollutionListClean.append(topContriesForPollutionListItemClean);
-      topContriesForPollutionListItemClean.prepend(imgFlag);
+      topContriesForPollutionListClean.append(topContriesForPollutionItemClean);
+      topContriesForPollutionItemClean.prepend(imgFlag);
     })
     topDirty.forEach(item => {
-      const topContriesForPollutionListItemDirty = document.createElement("li");
+      const topContriesForPollutionListItemDirty = document.createElement("p");
       const imgFlag = document.createElement("img");
       imgFlag.src = item.flag;
+      topContriesForPollutionListItemDirty.classList.add("accordion__content");
       topContriesForPollutionListItemDirty.textContent = item.name + " " + item.aqi + " AQI";
       topContriesForPollutionListDirty.append(topContriesForPollutionListItemDirty);
       topContriesForPollutionListItemDirty.prepend(imgFlag);
