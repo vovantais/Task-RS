@@ -2,7 +2,7 @@
 	width: 340px;
 	height: auto;
 	position: absolute;
-	top: calc(50% - 220px);
+	top: 40px;
 	left: calc(100vw - 350px);
 	background-color: rgba(0, 0, 0, .9);
 	box-shadow: -2px -2px 50px 2px rgba(0, 0, 0, 0.2);
@@ -43,19 +43,26 @@
 	}
 	&__forecast-conteiner{
 		width: 340px;
-		height: auto;
+		height: 525px;
+		padding: 0;
+		overflow-y: scroll;
+		overflow-x: hidden;
 		position: absolute;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
 		top: 0;
-		left: -105%;
-		@include flex-nowrap-column-center();
-		background-color: rgba(0, 0, 0, .8);
+		left: -100%;
+		background-color: rgba(0, 0, 0, .9);	
 	}
 	&__forecast-canvas{
-		width: 100%;
-		height: 30%;
-		margin: 0;
-		@include flex-nowrap-column-center();
+		height: 150px;
+		margin: 10px 0;
+		padding: 0;
+		border: 1px solid white;
 	}
+
 }
 
 .country-info__title::after {
@@ -101,6 +108,19 @@
 	font-size: 18px;
 	color: $default-color;
 }
+
+.country-info__forecast-conteiner::-webkit-scrollbar {
+	width: 8px;   
+  }
+  
+.country-info__forecast-conteiner::-webkit-scrollbar-track {
+	background: rgba(0, 0, 0, .9);        /* color of the tracking area */
+  }
+  
+.country-info__forecast-conteiner::-webkit-scrollbar-thumb {
+	background-color: $blue-bg-color;  
+	border-radius: 5px; 
+}     
 
 @media screen and (max-width: 575px) {
 	.country-info {

@@ -24,10 +24,12 @@ const countries = new Countries();
 countries.fetchCountriesAndFlag();
 countries.searchCountry();
 
-//const topContriesPollution = new TopContriesPollution();
+const topContriesPollution = new TopContriesPollution();
 
 const controller = new Controller(root);
+controller.loadDefaultCountryInfo();
 controller.getTargetCountry();
+
 
 const newMap = new CreateMap();
 newMap.LoadMap();

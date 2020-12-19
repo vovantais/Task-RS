@@ -5,6 +5,7 @@ export default class Controller {
     this.root = root;
     this.dataObj = null;
     this.targetCountry = null;
+    this.defaultCountry = "belarus";
   }
 
   getTargetCountry() {
@@ -14,6 +15,11 @@ export default class Controller {
       this.targetCountry = targetCountry;
       this.addDataToInfoObject(targetCountry);
     });
+  }
+
+  loadDefaultCountryInfo() {
+    this.targetCountry = this.defaultCountry;
+    this.addDataToInfoObject(this.defaultCountry);
   }
 
   //use it to create block with detail info with elements
@@ -48,7 +54,6 @@ export default class Controller {
     }
     countryDetailsInfo.outPutcountryInfo();
     countryDetailsInfo.createGraphConteiner();
-    countryDetailsInfo.createForecastConteiner();
   }
 
 }

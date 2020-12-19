@@ -15,7 +15,6 @@ export default class DetailCountryInfo {
     this.forecastData = [];
     this.forecastElements = [];
     this.forecastNumbers = {};
-    this.forecastCanva = null;
   }
 
   outPutcountryInfo() {
@@ -24,7 +23,7 @@ export default class DetailCountryInfo {
     this.createElementsDataList();
     this.createDeleteButton();
     this.outPutData();
-    this.getForecastData();
+    this.createForecastConteiner();
   }
 
   createInfoConteiner() {
@@ -59,12 +58,10 @@ export default class DetailCountryInfo {
     const currentDateConteiner = document.createElement("div");
     currentDateConteiner.classList.add("current-date__conteiner");
     const getDate = new GetDataFromAPI();
+
     const currentDate = getDate.getCountryInfo(this.country);
     currentDate.then((data)=>{
-      const month = data.data.time.iso ? new Date(data.data.time.iso).getMonth() : "--";
-      const day = data.data.time.iso ? new Date(data.data.time.iso).getDay() : "--";
-      const year = data.data.time.iso ? new Date(data.data.time.iso).getFullYear() : "--";
-      currentDateConteiner.textContent = (`${day}.${month}.${year}`);
+      currentDateConteiner.textContent = (data.data.time.s ?data.data.time.s : "--.--.--");
     });
     return currentDateConteiner;
   }
@@ -106,6 +103,7 @@ export default class DetailCountryInfo {
   createGraphConteiner() {
     const craphConteiner = document.createElement("canvas");
     craphConteiner.classList.add("country-info__graph");
+    craphConteiner.setAttribute("width", "90%");
     craphConteiner.setAttribute("id", "info-graph");
     craphConteiner.textContent = "Your browser does not support the canvas element.";
     this.conteiner.append(craphConteiner);
@@ -162,6 +160,7 @@ export default class DetailCountryInfo {
     const commonData = getData.getCountryInfo(this.country);
     commonData.then((data) => {
       const forecastData = data.data.forecast.daily;
+      this.forecastData  = forecastData;
       for (const key in forecastData) {
         this.forecastNumbers = forecastData[key].map((element) => element.avg);
         this.forecastElements.push({
@@ -170,8 +169,7 @@ export default class DetailCountryInfo {
           "avg" : forecastData[key].map((element) => element.avg)
         });
       }
-      this.forecastData  = forecastData;
-    });
+    }).then(()=> this.createForecastCanva()).then(() => this.createForecast());
   }
 
   createForecastConteiner() {
@@ -179,24 +177,24 @@ export default class DetailCountryInfo {
     forecastConteiner.classList.add("country-info__forecast-conteiner");
     this.conteiner.append(forecastConteiner);
     this.forecastConteiner = forecastConteiner;
-    this.createForecastCanva();
-    this.createForecast();
+    this.getForecastData();
   }
 
   createForecastCanva() {
-    const forecastCanva = document.createElement("canvas");
-    forecastCanva.classList.add("country-info__forecast-canvas");
-    forecastCanva.setAttribute("id", "info-forecast");
-    forecastCanva.textContent = "Your browser does not support the canvas element.";
-    this.forecastConteiner.append(forecastCanva);
-    this.forecastCanva = forecastCanva;
+    this.forecastElements.forEach((element) => {
+      const forecastCanva = document.createElement("canvas");
+      forecastCanva.classList.add("country-info__forecast-canvas");
+      forecastCanva.setAttribute("id", `info-forecast-${element.element}`);
+      forecastCanva.textContent = "Your browser does not support the canvas element.";
+      this.forecastConteiner.append(forecastCanva);
+    });
   }
 
   createForecast() {
     this.createBackGrounds(this.forecastNumbers);
-    var ctx = this.forecastCanva.getContext("2d");
     this.forecastElements.forEach((element) =>{
       for (const key in element) {
+        var ctx = document.querySelector(`#info-forecast-${element.element}`).getContext("2d");
         const avg = element.avg;
         const days = element.days;
         const el = element.element;

@@ -1,5 +1,8 @@
 import countries from "../../static/countries.json";
 export default class GetDataFromAPI {
+  constructor() {
+    this.data = null;
+  }
   //use it to get data object by coordinates
   getDataByCoordinates(lat, lng) {
     return new Promise((resolve, reject) => {
@@ -35,11 +38,11 @@ export default class GetDataFromAPI {
   }
  
   //use it to get AQI data for target country
+  //const a = getDate.getAQIdataForCountry(this.country);
+  // a.then((data) => console.log(data));   ==> aqi
   getAQIdataForCountry(targetCountry) {
-    const commonData = this.getCountryInfo(targetCountry); 
-    commonData.then((data) => {
-      return data.data.aqi;
-    });
+    const commonData = this.getCountryInfo(targetCountry);
+    return commonData.then((data) => data.data.aqi);
   }
 
   //use it to get element data for target country
@@ -55,13 +58,12 @@ export default class GetDataFromAPI {
         }
       }
     });
-    console.log(values);
     return values;
   }
 
   //use it to get element value
   getElementValue(targetElement) {
-    const countriesData = countries;
+    const countriesData = countries;   //json file add in top
     for (const key in countriesData) {
       const keyData = this.getElementDataForCountry(countriesData[key].name, targetElement.toLowerCase());
     }

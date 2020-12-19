@@ -19,16 +19,16 @@ export default class CreateContentPage {
     this.header.after(mainNav);
   }
   createSearchInput() {
-    const wrapper = document.createElement('div');
-    const createSearchInput = document.createElement('input');
-    wrapper.classList.add('nav__wrapper-input');
-    createSearchInput.classList.add('nav__search-input');
+    const wrapper = document.createElement("div");
+    const createSearchInput = document.createElement("input");
+    wrapper.classList.add("nav__wrapper-input");
+    createSearchInput.classList.add("nav__search-input");
     this.nav.append(wrapper);
     wrapper.append(createSearchInput);
   }
   createList() {
-    const createList = document.createElement('ul');
-    createList.classList.add('nav__country-list');
+    const createList = document.createElement("ul");
+    createList.classList.add("nav__country-list");
     this.nav.append(createList);
   }
 
