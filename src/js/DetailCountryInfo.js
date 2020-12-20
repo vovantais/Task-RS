@@ -1,5 +1,6 @@
 import colorData from "../assets/describe-air.json";
 import GetDataFromAPI from "./helpers/getDataFromAPI";
+import FullScreen from "./FullScreen";
 export default class DetailCountryInfo {
   constructor(country, dataElements, root) {
     this.country = country;
@@ -31,6 +32,9 @@ export default class DetailCountryInfo {
     this.conteiner = conteiner;
     conteiner.classList.add("country-info");
     this.root.append(conteiner);
+    const fullscreenButton = new FullScreen();
+    const button = fullscreenButton.createButton(conteiner);
+    conteiner.append(button); 
   }
 
   createTitle() {

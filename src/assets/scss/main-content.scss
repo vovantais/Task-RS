@@ -73,6 +73,7 @@
 	}
 }
 .main___map {
+	position: relative;
 	max-height: calc(100vh - 150px);
 	grid-area: article;
 	@include flex-nowrap-row-center();
@@ -80,11 +81,13 @@
 }
 
 .main__outPut-conteiner{
+	position: relative;
 	max-height: calc(100vh - 150px);
-	margin-top: 10px;
 	overflow-y: scroll;
 	grid-area: aside;
 }
+
+
 
 /* Stack the layout on small devices/viewports. */
 @media screen and (max-width: 1500px) {

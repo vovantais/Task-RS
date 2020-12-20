@@ -57,7 +57,7 @@ export default class ColorValueDescription {
     this.root.append(buttonConteiner);
     this.createColorsButtons();
   }
-
+  
   createColorsButtons() {
     const dataValues = colors;
     for (const key in dataValues) {

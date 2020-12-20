@@ -38,7 +38,9 @@
 	}
 	&__graph{
 		width: 100%;
+		max-width: 340px;
 		height: 40%;
+		max-height: 180px;
 		margin: 0;
 	}
 	&__forecast-conteiner{
@@ -129,5 +131,20 @@
 		left: 0;
 		background-image: $bg-gradient;
 		z-index: 10;
+	}
+	.country-info--full-screen {
+		width: 100%;
+		left: 0;
+	}
+	
+	.country-info--full-screen .elements-list__element {
+		width: 100%;
+	}
+	
+	.country-info--full-screen
+	 .country-info__forecast-conteiner {
+		width: 350px;
+		left: 0; 
+		top: 100%;
 	}
 }

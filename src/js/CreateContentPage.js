@@ -1,3 +1,4 @@
+import FullScreen from "./FullScreen";
 export default class CreateContentPage {
   constructor(root) {
     this.root = root;
@@ -14,7 +15,8 @@ export default class CreateContentPage {
 
   createNavigation() {
     const mainNav = document.createElement("nav");
-    mainNav.classList.add("main__navigation");
+    mainNav.classList.add("main__navigation" ,"full-screen");
+    this.createFullScreenButton(mainNav);
     this.nav = mainNav;
     this.header.after(mainNav);
   }
@@ -34,15 +36,23 @@ export default class CreateContentPage {
 
   createMap() {
     const map = document.createElement("article");
-    map.classList.add("main___map");
+    map.classList.add("main___map" , "full-screen");
     this.map = map;
     this.nav.after(map);
+    this.createFullScreenButton(map);
   }
 
   createOutPutConteiner() {
     const outPutConteiner = document.createElement("aside");
     outPutConteiner.classList.add("main__outPut-conteiner");
     this.map.after(outPutConteiner);
+    this.createFullScreenButton(outPutConteiner);
+  }
+
+  createFullScreenButton(element) {
+    const fullscreenButton = new FullScreen();
+    const button = fullscreenButton.createButton(element);
+    element.append(button);
   }
 
   initCreateContentPage() {
