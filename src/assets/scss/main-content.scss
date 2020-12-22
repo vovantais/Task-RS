@@ -8,10 +8,10 @@
 	grid-template-areas:
 		"header header header"
 		"nav article aside";
-	grid-template-rows: 30px 1fr;
-	grid-template-columns: 350px 1fr 350px;
-	grid-gap: 10px;
-	grid-column-gap: 10px;
+	grid-template-rows: 5px 1fr;
+	grid-template-columns: 300px 1fr 330px;
+	grid-gap: 5px;
+	grid-column-gap: 5px;
 	z-index: 10;
 }
 
@@ -25,6 +25,7 @@
 	flex-direction: column;
 	overflow-y: scroll;
 	position: relative;
+	max-width: 335px;
 	& .nav__wrapper-input {
 		padding: 10px 0px 10px 10px;
 		position: sticky;
@@ -49,6 +50,7 @@
 		margin: 10px 0px 0px 0px;
 		position: relative;
 		z-index: 1;
+		padding: 0px 0px 0px 20px;
 		li {
 			display: flex;
 			list-style-type: none;
@@ -83,29 +85,29 @@
 .main__outPut-conteiner{
 	position: relative;
 	max-height: calc(100vh - 150px);
-	overflow-y: scroll;
+	overflow-y: auto;
 	grid-area: aside;
 }
 
 
 
-/* Stack the layout on small devices/viewports. */
-@media screen and (max-width: 1500px) {
-	.main-content {
-		height: auto;
-		grid-template-areas:
-			"header header"
-			"nav aside"
-			"article article";
-			grid-template-rows: 40px 500px 500px;
-			grid-template-columns: 500px 1fr;
-			grid-gap: 20px;
-	}
-	.nav__country-list{
-		padding: 0 10px 0 20px;
+// /* Stack the layout on small devices/viewports. */
+// @media screen and (max-width: 1500px) {
+// 	.main-content {
+// 		height: auto;
+// 		grid-template-areas:
+// 			"header header"
+// 			"nav aside"
+// 			"article article";
+// 			grid-template-rows: 40px 500px 500px;
+// 			grid-template-columns: 500px 1fr;
+// 			grid-gap: 20px;
+// 	}
+// 	.nav__country-list{
+// 		padding: 0 10px 0 20px;
 
-	}
-}
+// 	}
+// }
 
 @media screen and (max-width: 575px) {
 	.main-content {
@@ -123,3 +125,4 @@
 
 	}
 }
+

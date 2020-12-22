@@ -61,7 +61,7 @@ export default class TopContriesPollution {
     topClean.forEach(item => {
       const topContriesForPollutionItemClean = document.createElement("p");
       const imgFlag = document.createElement("img");
-      topContriesForPollutionItemClean.classList.add("accordion__content");
+      topContriesForPollutionItemClean.classList.add("accordion__content","clean");
       topContriesForPollutionItemClean.textContent = item.name + " " + item.aqi + " AQI";
       imgFlag.src = item.flag;
       topContriesForPollutionListClean.append(topContriesForPollutionItemClean);
@@ -71,7 +71,7 @@ export default class TopContriesPollution {
       const topContriesForPollutionListItemDirty = document.createElement("p");
       const imgFlag = document.createElement("img");
       imgFlag.src = item.flag;
-      topContriesForPollutionListItemDirty.classList.add("accordion__content");
+      topContriesForPollutionListItemDirty.classList.add("accordion__content","dirty");
       topContriesForPollutionListItemDirty.textContent = item.name + " " + item.aqi + " AQI";
       topContriesForPollutionListDirty.append(topContriesForPollutionListItemDirty);
       topContriesForPollutionListItemDirty.prepend(imgFlag);

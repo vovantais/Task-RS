@@ -9,7 +9,7 @@
 	margin: auto;
 	padding: 24px 0;
 	position: relative;
-	top: 35px;
+	top: 55px;
 }
 
 #countdown:before {
@@ -131,9 +131,12 @@
 	width: 100%;
 	height: auto;
 	position: absolute;
-	top: -60%;
-	left: 0;
-	font-family: $mainFont;
+	top: -90%;
+	z-index: 10;
+	font-family: $unhealthy;
+	color: $unhealthy;
+	font-weight: 900;
 	@include  adaptiv-font(20, 18);
 	text-transform: uppercase;
+	letter-spacing: 1.2px;
 }

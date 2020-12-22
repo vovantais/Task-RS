@@ -1,12 +1,13 @@
 .accordion {
-	width: 220px;
-	height: auto;
-	margin: 30px auto;
-	padding: 20px;
+	width: 290px;
+	height: min-content;
+	margin: 65px auto;
+	padding: 10px;
 	background-image: $bg-gradient;
 	color: #fbfbfb;
 	border-radius: 5px;
-
+	display: flex;
+	justify-content: space-around;
 	&__item {
 		margin: 0px 0px 10px 0px;
 		p {
@@ -38,7 +39,12 @@
 				border-color: $good;
 			}
 			.accordion__content {
-				height: 100%;
+				height: auto;
+				overflow: visible;
+				opacity: 1;
+			}
+			.accordion__content {
+				height: auto;
 				overflow: visible;
 				opacity: 1;
 			}
@@ -52,9 +58,9 @@
 		text-align: center;
 		margin: 0 auto;
 		position: relative;
-		width: 200px;
-		padding: 15px;
-		line-height: 22px;
+		width: 135px;
+		padding: 10px;
+		line-height: 25px;
 		background-color: $blue-bg-color;
 		color: $default-color;
 		border: 2px solid $blue-bg-color;
@@ -78,5 +84,12 @@
 		opacity: 0;
 		@include adaptiv-font(14.5, 14);
 		transition: overflow 0.4s, opacity 0.4s;
+		line-height: 25px;
+	}
+	.accordion__content.clean{
+		margin: 0px -100px 0px 0px;
+	}
+	.accordion__content.dirty{
+		margin: 0px 0px 0px -50px;
 	}
 }

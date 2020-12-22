@@ -41,13 +41,18 @@
 	cursor: pointer;
 }
 
-/*.full-screen--active {
-	background-image: url("../img/full-screen-exit.png");
+// .full-screen--active {
+// }
+.filter-screen__button{
+	outline: none;
+	border:none;
+	color:$hover-color;
 }
-
-.full-screen--default {
-	background-image: url("../img/full-screen.png");
-}*/
+.full-screen--default{
+	outline: none;
+	border:none;
+	color:$hover-color;
+}
 
 .map__button--full-screen {
 	width: 35px;
