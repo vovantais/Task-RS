@@ -1,4 +1,5 @@
 import colors from "../assets/describe-air.json";
+import FullScreen from "./FullScreen";
 export default class ColorValueDescription {
   constructor() {
     this.root = document.querySelector(".main___map");
@@ -55,6 +56,9 @@ export default class ColorValueDescription {
     buttonConteiner.classList.add("button-conteiner");
     this.buttonConteiner = buttonConteiner;
     this.root.append(buttonConteiner);
+    const fullscreenButton = new FullScreen();
+    const button = fullscreenButton.createButton(this.root);
+    buttonConteiner.append(button);
     this.createColorsButtons();
   }
   
@@ -71,6 +75,7 @@ export default class ColorValueDescription {
 
   getValueInfo() {
     this.buttonConteiner.addEventListener("click", (e) => {
+      if(!e.target.classList.contains("color-button")) return;
       const targetValue = e.target.textContent;
       const dataObj = this.getDataColorValue(targetValue);
       const filter = this.createCoverFilter();
@@ -92,6 +97,7 @@ export default class ColorValueDescription {
       }
     }
   }
+
 
   createDeleteButton() {
     const delButton = document.createElement("button");

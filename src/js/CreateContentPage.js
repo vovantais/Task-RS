@@ -39,7 +39,6 @@ export default class CreateContentPage {
     map.classList.add("main___map" , "full-screen");
     this.map = map;
     this.nav.after(map);
-    this.createFullScreenButton(map);
   }
 
   createOutPutConteiner() {
