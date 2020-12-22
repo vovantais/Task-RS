@@ -53,9 +53,10 @@
 	margin: auto 10px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 880px) {
 	.footer {
 		height: auto;
+		padding: 15px 0px 15px 0px;
 	}
 	.footer__list {
 		padding: 0;
