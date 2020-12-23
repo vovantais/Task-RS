@@ -4,11 +4,13 @@ export default class Countries {
     this._searchTerm = '';
     this.fetchCountriesAndFlag();
   }
+  
   async fetchCountriesAndFlag() {
     const req = await fetch(`/countries.json`);
     this._data = await req.json();
     this.render(this._data);
   }
+
   searchCountry() {
     const inputSearch = document.querySelector('.nav__search-input');
     inputSearch.addEventListener('input', (e) => {

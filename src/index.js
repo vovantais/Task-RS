@@ -31,7 +31,7 @@ controller.loadDefaultCountryInfo();
 controller.getTargetCountry();
 
 
-const newMap = new CreateMap();
+const newMap = new CreateMap(53.9000000, 27.5666700);
 newMap.LoadMap();
 
 const elementDescription = new ElementDescription(root);

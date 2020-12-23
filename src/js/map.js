@@ -1,4 +1,7 @@
 export default class CreateMap {
+  constructor(lat, lng) {
+    this.center = new google.maps.LatLng(lat, lng);
+  }
 
 
   // window.onload = function () {
@@ -425,7 +428,7 @@ export default class CreateMap {
     ];
 
     var mapOptions = {
-      center: new google.maps.LatLng(locations[0].lat, locations[0].lng),
+      center: this.center || new google.maps.LatLng(locations[0].lat, locations[0].lng),
       //center: new google.maps.LatLng(48.775847, 9.18296),
       zoom: 2,
       disableDefaultUI: true,

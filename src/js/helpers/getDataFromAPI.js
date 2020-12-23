@@ -45,11 +45,16 @@ export default class GetDataFromAPI {
     return commonData.then((data) => data.data.aqi);
   }
 
+  getTargetCountryCoordinates(targetCountry) {
+    const commonData = this.getCountryInfo(targetCountry);
+    return commonData.then((data) => data.data.city.geo);
+  }
+
   //use it to get element data for target country
   getElementDataForCountry(targetCountry, targetElement) {
     const commonData = this.getCountryInfo(targetCountry);
     let values = {}; 
-    commonData.then((data) => {
+    return commonData.then((data) => {
       const elementsData = data.data.iaqi;
       for (const key in elementsData) {
         if(key === targetElement) {
@@ -57,8 +62,8 @@ export default class GetDataFromAPI {
           values.country = targetCountry;
         }
       }
+      return values;
     });
-    return values;
   }
 
   //use it to get element value
@@ -66,10 +71,11 @@ export default class GetDataFromAPI {
     const countriesData = countries;   //json file add in top
     for (const key in countriesData) {
       const keyData = this.getElementDataForCountry(countriesData[key].name, targetElement.toLowerCase());
+      keyData.then((data) =>{
+        if(data.value != "undefined"){
+          console.log(data.value + " / " + data.country);
+        }
+      }); 
     }
-    //для каждой страны получить дату
-    //из кадой даты вытащить показатель елемента если он есть
-    //отразить это на карте
-    //отразить это в списке
   }
 }

@@ -1,3 +1,4 @@
+import Map from "../js/map";
 import DetailCountryInfo from "./DetailCountryInfo";
 import GetDataFromAPI from "./helpers/getDataFromAPI";
 export default class Controller {
@@ -14,6 +15,12 @@ export default class Controller {
       const targetCountry = e.target.textContent;
       this.targetCountry = targetCountry;
       this.addDataToInfoObject(targetCountry);
+      const coordinates = new GetDataFromAPI();
+      const coordData = coordinates.getTargetCountryCoordinates(targetCountry);
+      coordData.then((data)=> {
+        const map = new Map(data[0], data[1]);
+        new google.maps.LatLng(data[0], data[1]);
+      });
     });
   }
 

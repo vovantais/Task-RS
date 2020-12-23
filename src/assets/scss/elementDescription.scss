@@ -60,6 +60,20 @@
         text-transform: uppercase;
         text-align: center;
     }
+    &::after{
+        content: "click me";
+        width: 80px;
+        height: 20px;
+        display: block;
+        position: absolute;
+        top: -15px;
+        right: 0;
+        font-family: $mainFont;
+        color: $moderate;
+        font-size: 12px;
+        z-index: inherit;
+        opacity: 0;
+    }
 }
 
 .elementInfo:hover .elementInfo-desc{
@@ -75,6 +89,10 @@
     align-items: center;
     opacity: 0;
     z-index: 0;
+}
+
+.elementInfo:hover::after{
+    opacity: 1;
 }
 
 @media screen and (max-width: 1500px) {
