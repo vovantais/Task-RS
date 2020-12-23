@@ -7,7 +7,7 @@ export default class TopContriesPollution {
     this._topDirtyContries = null;
   }
   async fetchAllAqiContries() {
-    const req = await fetch("/countries.json");
+    const req = await fetch("./countries.json");
     this._listContries = await req.json();
     this.fetchAllAqi();
   }

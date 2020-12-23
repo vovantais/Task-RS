@@ -4,9 +4,9 @@ export default class Countries {
     this._searchTerm = '';
     this.fetchCountriesAndFlag();
   }
-  
+
   async fetchCountriesAndFlag() {
-    const req = await fetch(`/countries.json`);
+    const req = await fetch(`./countries.json`);
     this._data = await req.json();
     this.render(this._data);
   }
