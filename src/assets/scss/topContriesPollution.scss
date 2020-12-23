@@ -93,3 +93,11 @@
 		margin: 0px 0px 0px -50px;
 	}
 }
+@media(max-width:1400px){
+	.accordion {
+		width: 270px;
+	}
+	.accordion__header {
+		width: 125px;
+	}
+}

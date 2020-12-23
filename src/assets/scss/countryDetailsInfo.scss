@@ -127,14 +127,19 @@
 	background-color: $blue-bg-color;  
 	border-radius: 5px; 
 }     
-
+@media screen and (max-width: 1024px) {
+	.country-info {
+		top: 10px;
+	}
+}
 @media screen and (max-width: 575px) {
 	.country-info {
 		width: 100vw;
-		top: 380px;
+		top: 390px;
 		left: 0;
 		background-image: $bg-gradient;
 		z-index: 10;
+		height: 520px;
 	}
 	.country-info--full-screen {
 		width: 100%;

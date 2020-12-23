@@ -1,5 +1,5 @@
 #countdown {
-	width: 300px;
+	width: 295px;
 	height: 30px;
 	text-align: center;
 	background: #222;
@@ -139,4 +139,13 @@
 	@include  adaptiv-font(20, 18);
 	text-transform: uppercase;
 	letter-spacing: 1.2px;
+}
+
+@media (max-width:1400px){
+#countdown:before {
+	width: 0;
+}
+#countdown:after {
+	width: 0;
+}
 }
