@@ -23,6 +23,7 @@
 	top: 0;
 	left: calc(100vw - 100px);
 	cursor: pointer;
+	z-index: 50;
 }
 
 .button--full-screen {
@@ -102,8 +103,10 @@
 
 	.filter-screen__button {
 		width: 80px;
-		top: -30px;
-		left: calc(100vw - 100px);
+		top: 20px;
+		left: 80%;
+		z-index: 50;
+		background-color: transparent;
 	}
 
 	.country-info--full-screen {
@@ -117,7 +120,7 @@
 	}
 	
 	.country-info--full-screen
-	 .country-info__forecast-conteiner {
+	.country-info__forecast-conteiner {
 		width: 360px;
 		margin-top: 10px;
 		left: 10px; 

@@ -2,7 +2,6 @@
 	width: 300px;
 	height: min-content;
 	position: absolute;
-	top: 312px;
 	bottom: 0;
 	left: calc(100vw - 310px);
 	background-color: rgba(0, 0, 0, .9);
@@ -135,12 +134,22 @@
 @media screen and (max-width: 575px) {
 	.country-info {
 		width: 100vw;
-		top: 390px;
+		top: 0;
 		left: 0;
 		background-image: $bg-gradient;
 		z-index: 10;
 		height: 520px;
 	}
+	.country-info__forecast-conteiner {
+		margin-left: 0;
+		width: 100vw;
+		left: 0; 
+		top: 105%;
+	}
+	.country-info__del-button{
+		display: none;
+	}
+
 	.country-info--full-screen {
 		width: 100%;
 		left: 0;
@@ -150,10 +159,11 @@
 		width: 100%;
 	}
 	
-	.country-info--full-screen
-	 .country-info__forecast-conteiner {
+	.country-info--full-screen	.country-info__forecast-conteiner {
 		width: 350px;
+		height: auto;
 		left: 0; 
 		top: 100%;
 	}
+
 }

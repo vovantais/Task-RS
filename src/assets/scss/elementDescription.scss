@@ -95,13 +95,11 @@
 	left: -80px;
 }
 
-<<<<<<< HEAD
 .elementInfo:hover::after{
     opacity: 1;
 }
 
-@media screen and (max-width: 1500px) {
-=======
+
 @media screen and (max-width: 1550px) {
 	.elementInfo-conteiner{
 		display: grid;
@@ -113,7 +111,6 @@
 		  padding: 0px 0px 0px 0px;
 		  width: 40%;
 	}
->>>>>>> 56296b6cb2b16db5630267a5150921a8d8a86cbf
     .elementInfo {
 		  width: 80px;
 		  position: relative;

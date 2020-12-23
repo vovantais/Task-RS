@@ -133,28 +133,36 @@
 
 @media screen and (max-width: 575px) {
 	.main-content {
-		height: calc((100vh - 150px)*2);
+		height: auto;
 		grid-template-areas:
 			"header"
 			"article"
 			"nav"
-			"nav"
+			"info"
+			"forecast"
 			"aside";
-		grid-template-rows: 5px repeat(4,1fr);
+		grid-template-rows: 5px 200px 300px 500px 500px 1fr;
 		grid-template-columns: 1fr;
+		grid-gap: 10px 0;
 	}
+
+	.country-info {
+		grid-area: info;
+	}
+	.country-info__forecast-conteiner{
+		grid-area: forecast;
+	}
+
 	.nav__country-list{
 		padding: 0 10px 0 20px;
 	}
 	.main__navigation{
-		position: relative;
-		top: 800px;
-		height: 400px;
+		margin: 10px auto;
+
 	}
 	.main__outPut-conteiner{
-		position: absolute;
-		top: -320px;
-		z-index: 50;
+		margin: 10px auto;
+		padding-top: 50px;
 	}
 }
 
