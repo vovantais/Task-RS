@@ -11,7 +11,7 @@ export default class TimeTillEnd {
     const timeConteiner = document.createElement("div");
     const timeLabel = document.createElement("p");
     timeLabel.classList.add("time__label");
-    timeLabel.textContent = "time till end";
+    timeLabel.textContent = "left before global pollution";
     timeConteiner.classList.add("header__time-conteiner");
     timeConteiner.id = "countdown";
 

@@ -113,14 +113,14 @@
 	padding: 0;
 	@include flex-wrap-row-center();
 	position: absolute;
-	top: 20px;
+	top: 10px;
 	left: 0;
 }
 
 .color-button {
 	width: auto;
 	height: 30px;
-	margin: auto 10px;
+	margin: 10px 20px;
 	text-align: center;
 	font-family: $mainFont;
 	font-size: 14px;
@@ -153,7 +153,16 @@
 	border: none;
 }
 
-
+@media screen and (max-width: 1470px) {
+	.button-conteiner {
+		top: 30px;
+	}
+}
+@media screen and (max-width: 1090px) {
+	.button-conteiner {
+		top: 90px;
+	}
+}
 @media screen and (max-width: 600px) {
 	.button-conteiner {
 		display: none;

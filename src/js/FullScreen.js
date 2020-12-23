@@ -2,8 +2,10 @@ export default class FullScreen {
 
   createButton(element) {
     const button = document.createElement("button");
+    const icon =document.createElement("i");
     button.classList.add("button--full-screen", "full-screen--default");
-    button.textContent = "[]";
+    icon.classList.add("fas","fa-expand");
+    button.append(icon);
     button.addEventListener("click", ()=>{
       this.elementToFullScreen(element);
       if(!element.classList.contains("country-info")){
@@ -48,8 +50,10 @@ export default class FullScreen {
 
   createFilterButton() {
     const button = document.createElement("button");
+    const icon =document.createElement('i');
     button.classList.add("filter-screen__button");
-    button.textContent = "close";
+    icon.classList.add("fas","fa-compress");
+    button.append(icon);
     return button;
   }
 

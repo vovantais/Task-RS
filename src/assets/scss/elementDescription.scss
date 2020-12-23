@@ -11,7 +11,7 @@
 }
 
 .elementInfo {
-    width: 110px;
+    width: 90px;
     height: 130px;
     @include flex-nowrap-row-center();
     position: relative;
@@ -90,14 +90,34 @@
     opacity: 0;
     z-index: 0;
 }
+.elementInfo{
+	position: relative;
+	left: -80px;
+}
 
+<<<<<<< HEAD
 .elementInfo:hover::after{
     opacity: 1;
 }
 
 @media screen and (max-width: 1500px) {
+=======
+@media screen and (max-width: 1550px) {
+	.elementInfo-conteiner{
+		display: grid;
+		  grid-template-columns: repeat(3,1fr);
+		  grid-template-rows: repeat(3,1fr);
+		  grid-column-gap:10px;
+		  grid-row-gap: 5px;
+		  margin: 0;
+		  padding: 0px 0px 0px 0px;
+		  width: 40%;
+	}
+>>>>>>> 56296b6cb2b16db5630267a5150921a8d8a86cbf
     .elementInfo {
-        width: 80px;
+		  width: 80px;
+		  position: relative;
+		  left: 85px;
     }
     .elementInfo-name {
         width: 45px;
