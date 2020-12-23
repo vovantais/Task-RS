@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+	<link href="../assets/css/app.007f352c1af373545508.css" rel="stylesheet">
+	<title>About App</title>
+</head>
+<div class="wrapper about">
+	<header class="header">
+		<div class="inner-header flex">
+			<img class="header__logo" src="../assets/img/main-icon.png" alt="logo">
+		</div>
+		<!--Waves Container-->
+		<div>
+			<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+				viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+				<defs>
+					<path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+				</defs>
+				<g class="parallax">
+					<use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+					<use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+					<use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+					<use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+				</g>
+			</svg>
+		</div>
+		<!--Waves end-->
+		<div class="container">
+			<div class="header__row">
+				<div class="header__body">
+					<nav class="header__menu ">
+						<ul class="header__list">
+							<li><a href="../index.html">Main Page</a></li>
+							<li><a href="#">About</a></li>
+						</ul>
+					</nav>
+					<div class="header__toggle ">
+						<span></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!--main content start-->
+	<main class="contet-slider">
+		<div class="slider-wrap">
+			<div class="slider js-slider">
+				<div class="slider__images">
+					<div class="slide__image js-slide__image">
+						<img src="../assets/img/aqi.jpg" alt='AQI'>
+					</div>
+					<div class="slide__image js-slide__image">
+						<img
+							src="../assets/img/green.jpg" alt='green'>
+					</div>
+					<div class="slide__image js-slide__image">
+						<img
+							src="../assets/img/yellow.jpg" alt='yellow'>
+					</div>
+					<div class="slide__image js-slide__image">
+						<img src="../assets/img/orange.jpg" alt='orange'>
+					</div>
+					<div class="slide__image js-slide__image">
+						<img src="../assets/img/red.jpg" alt='red'>
+					</div>
+					<div class="slide__image js-slide__image">
+						<img src="../assets/img/purple.jpg" alt='purple'>
+					</div>
+					<div class="slide__image js-slide__image">
+						<img src="../assets/img/maroon.jpg" alt='maroon'>
+					</div>
+				</div>
+				<div class="slider__content js-slider__content">
+					<div class="slide__content js-slide__content"
+						style="transition:all 0.2s linear;background-color: rgba(0, 0, 0, 0.6);">
+						<h1 class="slide__sub js-stagger-item">What is the U.S. Air Quality Index (AQI)?</h1>
+						<p class="slide__title js-stagger-item">The U.S. AQI is EPA’s index for reporting air quality.</p>
+						<h2 class="slide__title js-stagger-item">How does the AQI work?</h2>
+						<p class="slide__title js-stagger-item">Think of the AQI as a yardstick that runs from 0 to 500. The
+							higher the AQI value, the greater the level of air
+							pollution and the greater the health concern. For example, an AQI value of 50 or below represents
+							good air quality,
+							while an AQI value over 300 represents hazardous air quality.</p>
+					</div>
+					<div class="slide__content js-slide__content"
+						style=" transition:all 0.5s linear; background-color:  rgba(53, 230, 53, 0.6);">
+						<div class="slide__sub js-stagger-item">Daily AQI Color : Green</div>
+						<h2 class="slide__title js-stagger-item">Levels of Concern : Good</h2>
+						<p class="slide__title js-stagger-item">Values of Index : 0 to 50</p>
+						<p class="slide__title js-stagger-item">Description of Air Quality: Air quality is satisfactory, and air pollution poses little or no risk.</p>
+					</div>
+					<div class="slide__content js-slide__content"
+						style=" transition:all 0.5s linear; background-color:rgba(255, 255, 0, 0.6);">
+						<div class="slide__sub js-stagger-item">Daily AQI Color : Yellow</div>
+						<h2 class="slide__title js-stagger-item">Levels of Concern : Moderate</h2>
+						<p class="slide__title js-stagger-item">Values of Index : 51 to 100</p>
+						<p class="slide__title js-stagger-item">Description of Air Quality: Air quality is acceptable. However, there may be a risk for some people, particularly those who are unusually sensitive
+						to air pollution.</p>
+					</div>
+					<div class="slide__content js-slide__content"
+						style=" transition:all 0.5s linear; background-color:rgba(255, 126, 0, 0.6);">
+						<div class="slide__sub js-stagger-item">Daily AQI Color : Orange</div>
+						<h2 class="slide__title js-stagger-item">Levels of Concern : Unhealthy for Sensitive Groups</h2>
+						<p class="slide__title js-stagger-item">Values of Index : 101 to 150</p>
+						<p class="slide__title js-stagger-item">Members of sensitive groups may experience health effects. The general public is less likely to be affected.</p>
+					</div>
+					<div class="slide__content js-slide__content"
+						style=" transition:all 0.5s linear; background-color:rgba(255, 0, 0, 0.6);">
+						<div class="slide__sub js-stagger-item">Daily AQI Color : Red</div>
+						<h2 class="slide__title js-stagger-item">Levels of Concern : Unhealthy</h2>
+						<p class="slide__title js-stagger-item">Values of Index : 151 to 200</p>
+						<p class="slide__title js-stagger-item">Some members of the general public may experience health effects; members of sensitive groups may experience more
+						serious health effects.</p>
+					</div>
+					<div class="slide__content js-slide__content"
+						style=" transition:all 0.5s linear; background-color:rgba(153, 0, 76, 0.6)">
+						<div class="slide__sub js-stagger-item">Daily AQI Color : Purple</div>
+						<h2 class="slide__title js-stagger-item">Levels of Concern : Very Unhealthy</h2>
+						<p class="slide__title js-stagger-item">Values of Index : 201 to 300</p>
+						<p class="slide__title js-stagger-item">Health alert: The risk of health effects is increased for everyone.</p>
+					</div>
+					<div class="slide__content js-slide__content"
+						style=" transition:all 0.5s linear; background-color:rgba(126, 0, 35, 0.6);">
+						<div class="slide__sub js-stagger-item">Daily AQI Color : Maroon</div>
+						<h2 class="slide__title js-stagger-item">Levels of Concern : Hazardous</h2>
+						<p class="slide__title js-stagger-item">Values of Index : 301 and higher</p>
+						<p class="slide__title js-stagger-item">Health warning of emergency conditions: everyone is more likely to be affected.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer class="footer">
+		<div class="footer__logo--rss">
+			<a href="https://rs.school/js/">RSSchool, 2020</a>
+		</div>
+		<ul class="footer__list">
+			<li>
+				<img class="github-icon" src="../assets/img/github-icon.png" alt="github icon">
+				<a class="footer__link" href="https://github.com/nataliapantiukhova">nataliapantiukhova</a>
+			</li>
+			<li>
+				<img class="github-icon" src="../assets/img/github-icon.png" alt="github icon">
+				<a class="footer__link" href="https://github.com/vovantais">vovantais</a>
+			</li>
+			<li>
+				<img class="github-icon" src="../assets/img/github-icon.png" alt="github icon">
+				<a class="footer__link" href="https://github.com/KseniaMV">KseniaMV</a>
+			</li>
+		</ul>
+	</footer>
+	<!--main content end-->
+</div>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
+<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKlguHK3hwvQHo87NrCBf_ieJo8ZW4M3U&callback=initMap&libraries=&v=weekly"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+<script srs="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+<script src='../assets/js/script.js'></script>
+
+</body>
+
+</html>
